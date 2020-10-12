@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 	<title>Registro</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="dist/images/icons/favicon.ico"/>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="dist/images/icons/favicon.ico" />
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="dist/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="dist/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="dist/vendor/animate/animate.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="dist/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="dist/vendor/select2/select2.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="dist/css/util.css">
 	<link rel="stylesheet" type="text/css" href="dist/css/register.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 </head>
+
 <body>
 
 	<div class="contact1">
@@ -34,31 +36,31 @@
 					Crear cuenta
 				</span>
 
-				<div class="wrap-input1 validate-input" data-validate = "Es necesario su nombre">
+				<div class="wrap-input1 validate-input" data-validate="Es necesario su nombre">
 					<input class="input1" type="text" name="nombre" placeholder="Nombre">
 					<span class="shadow-input1"></span>
 				</div>
-				<div class="wrap-input1 validate-input" data-validate = "Es necesario su apellido">
+				<div class="wrap-input1 validate-input" data-validate="Es necesario su apellido">
 					<input class="input1" type="text" name="apellido" placeholder="Apellido">
 					<span class="shadow-input1"></span>
 				</div>
 
-				<div class="wrap-input1 validate-input" data-validate = "Es necesario su fecha de nacimiento">
-					<input class="input1" type="date" name="fechanacimiento" id="dod">
+				<div class="wrap-input1 validate-input" data-validate="Es necesario su fecha de nacimiento">
+					<input class="input1" type="date" name="fechanacimiento" id="dod" >
 					<span class="shadow-input1"></span>
 				</div>
 
-				<div class="wrap-input1 validate-input" data-validate = "Es necesario su correo: ex@abc.xyz">
+				<div class="wrap-input1 validate-input" data-validate="Es necesario su correo: ex@abc.xyz">
 					<input class="input1" type="email" name="correo" placeholder="Correo">
 					<span class="shadow-input1"></span>
 				</div>
 
-				<div class="wrap-input1 validate-input" data-validate = "La contrasena es requerida">
+				<div class="wrap-input1 validate-input" data-validate="La contrasena es requerida">
 					<input class="input1" type="password" name="contrasena" placeholder="Contrasena">
 					<span class="shadow-input1"></span>
-				</div> 
+				</div>
 
-				<div class="container-contact1-form-btn">
+				<div class="container-contact1-form-btn" onclick="isValidDate()">
 					<button class="contact1-form-btn">
 						<span>
 							Registrarme
@@ -73,21 +75,29 @@
 
 
 
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="dist/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="dist/vendor/bootstrap/js/popper.js"></script>
 	<script src="dist/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="dist/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="dist/vendor/tilt/tilt.jquery.min.js"></script>
-	<script >
+	<script>
 		$('.js-tilt').tilt({
 			scale: 1.1
 		})
-	</script> 
+	</script>
 	<script src="dist/js/register.js"></script>
+	<script>
+		//La funcion mas pequeña de la historia
+		var today = new Date();
+		var date = today.getFullYear() - 18 + '-' + (today.getMonth() + 1) + '-' + today.getDate(); 	
+		document.getElementById("dod").setAttribute("max", date); 
 
+	</script>
+	
 </body>
+
 </html>
