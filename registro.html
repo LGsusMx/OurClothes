@@ -31,7 +31,7 @@
 				<img src="dist/images/img-01.png" alt="IMG">
 			</div>
 
-			<form class="contact1-form validate-form">
+			<form class="contact1-form validate-form" id="formaregistrate">
 				<span class="contact1-form-title">
 					Crear cuenta
 				</span>
@@ -60,7 +60,7 @@
 					<span class="shadow-input1"></span>
 				</div>
 
-				<div class="container-contact1-form-btn" onclick="isValidDate()">
+				<div class="container-contact1-form-btn">
 					<button class="contact1-form-btn">
 						<span>
 							Registrarme
@@ -89,7 +89,16 @@
 			scale: 1.1
 		})
 	</script>
+	<!--===============================================================================================-->
+	<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+	<script src="dist/js/bd.js"></script>
+	<!--===============================================================================================-->
 	<script src="dist/js/register.js"></script>
+	<!--===============================================================================================-->
 	<script>
 		//La funcion mas pequeña de la historia
 		var today = new Date();

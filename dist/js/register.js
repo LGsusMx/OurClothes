@@ -12,7 +12,7 @@
     var password = $('.validate-input input[name="contrasena"]');
 
 
-    $('.validate-form').on('submit',function(){
+    $('.validate-form').on('submit',function(e){
         var check = true;
 
         if($(name).val().trim() == ''){
@@ -40,8 +40,10 @@
             check=false;
         }
 
-        
-
+        if (check) {
+            e.preventDefault();
+            registerFunction(name,lastname,date,email,password);
+        }
         return check;
     });
 
@@ -67,3 +69,21 @@
     
 
 })(jQuery);
+
+function registerFunction(namex,lastnamex,datex,emailx,passwordx){
+    auth.createUserWithEmailAndPassword(emailx.val(),passwordx.val()).then( cred =>{
+
+        return db.collection('usuarios').doc(cred.user.uid).set({
+            name: namex.val(),
+            lastname: lastnamex.val(),
+            dob: datex.val()
+        });
+
+
+    }).then( ()=>{
+        location.href = "index.html";
+    }).catch( err => {
+        formaregistrate.querySelector('.error').innerHTML = mensajeError(err.code);
+    });
+    
+}
