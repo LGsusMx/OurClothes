@@ -31,37 +31,44 @@
 				<img src="dist/images/img-01.png" alt="IMG">
 			</div>
 
-			<form class="contact1-form validate-form">
+			<form class="contact1-form validate-form" id="ingresar">
 				<span class="contact1-form-title">
 					Iniciar sesion
 				</span> 
 				<div class="wrap-input1 validate-input" data-validate="Es necesario su correo: ex@abc.xyz">
-					<input class="input1" type="email" name="correo" placeholder="Correo">
+					<input class="input1" type="email" id="correo" name="correo" placeholder="Correo">
 					<span class="shadow-input1"></span>
 				</div>
 
 				<div class="wrap-input1 validate-input" data-validate="La contrasena es requerida">
-					<input class="input1" type="password" name="contrasena" placeholder="Contrasena">
+					<input class="input1" type="password" id="contrasena" name="contrasena" placeholder="Contrasena">
 					<span class="shadow-input1"></span>
 				</div>
 
-				<div class="container-contact1-form-btn" onclick="isValidDate()">
-					<button class="contact1-form-btn">
+				<div class="container-contact1-form-btn" >
+					<button class="btn contact1-form-btn">
 						<span>
 							Ingresar
 							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
 						</span>
 					</button>
+					<p class="error text-danger"></p>
 				</div>
 
 				<div  style="text-align: center; padding-top: 5px;" ><a href="registro.html">Crear cuenta</a></div>
 			</form>
 		</div>
 	</div>
-
-
-
-
+	<!--===============================================================================================-->
+	<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+	<!--===============================================================================================-->
+	<script src="dist/js/bd.js"></script>
+	<!--===============================================================================================-->
+	<script src="dist/js/Authentication.js"></script>
 	<!--===============================================================================================-->
 	<script src="dist/vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
