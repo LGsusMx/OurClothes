@@ -10,7 +10,7 @@ formaingresar.addEventListener('submit', (e)=>{
         console.log(cred);
         formaingresar.reset();
         formaingresar.querySelector('.error').innerHTML=''; 
-        location.href = "../index.html"
+        location.href = "./index.html"
         console.log( "Ingreso")
     }).catch( err => {
 
