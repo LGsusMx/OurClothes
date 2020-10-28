@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Editar cuenta</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="dist/images/icons/favicon.ico" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="dist/vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="dist/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="dist/vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="dist/vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="dist/vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="dist/css/util.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/register.css">
+	<!--===============================================================================================-->
+</head>
+
+<body>
+
+	<div class="contact1">
+		<div class="container-contact1">
+			<div class="contact1-pic js-tilt" data-tilt>
+				<img src="dist/images/img-01.png" alt="IMG">
+			</div>
+
+			<form class="contact1-form validate-form" id="formaeditar">
+				<span class="contact1-form-title">
+					Editar cuenta
+				</span>
+
+				<div class="wrap-input1 validate-input" data-validate="Es necesario su nombre">
+					<input class="input1" type="text" name="nombre" placeholder="Nombre" id="idNombre">
+					<span class="shadow-input1"></span>
+				</div>
+				<div class="wrap-input1 validate-input" data-validate="Es necesario su apellido">
+					<input class="input1" type="text" name="apellido" placeholder="Apellido"  id="idApellido">
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="wrap-input1 validate-input" data-validate="Es necesario su fecha de nacimiento">
+					<input class="input1" type="date" name="fechanacimiento" id="dod" >
+					<span class="shadow-input1"></span>
+				</div>
+				<div class="container-contact1-form-btn">
+					<input class="input1" type="password" id="contrasena1" name="contrasena" placeholder="Contraseña actual">
+				</div>
+				<div class="container-contact1-form-btn">
+					<input class="input1" type="password" id="contrasena" name="contrasena" placeholder="Contraseña Nueva">
+				</div>
+				
+			</form>
+			<button onclick="updateFunction()" class="contact1-form-btn"> cambiar datos
+			</button>
+		</div>
+	</div>
+
+
+
+
+	<!--===============================================================================================-->
+	<script src="dist/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="dist/vendor/bootstrap/js/popper.js"></script>
+	<script src="dist/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="dist/vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="dist/vendor/tilt/tilt.jquery.min.js"></script>
+	<script>
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+	<!--===============================================================================================-->
+	<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+	<script src="dist/js/bd.js"></script>
+	<!--===============================================================================================-->
+	
+	<script src="dist/js/edit.js"></script>
+	<!--===============================================================================================-->
+	<script>
+		//La funcion mas pequeña de la historia
+		var today = new Date();
+		var date = today.getFullYear() - 18 + '-' + (today.getMonth() + 1) + '-' + today.getDate(); 	
+		document.getElementById("dod").setAttribute("max", date); 
+
+	</script>
+	
+</body>
+
+</html>
