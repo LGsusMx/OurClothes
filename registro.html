@@ -31,36 +31,41 @@
 				<img src="dist/images/img-01.png" alt="IMG">
 			</div>
 
-			<form class="contact1-form validate-form">
+			<form class="contact1-form validate-form" id="formaregistrate">
 				<span class="contact1-form-title">
 					Crear cuenta
 				</span>
 
 				<div class="wrap-input1 validate-input" data-validate="Es necesario su nombre">
+					<label for="nombre">Nombre</label>
 					<input class="input1" type="text" name="nombre" placeholder="Nombre">
 					<span class="shadow-input1"></span>
 				</div>
 				<div class="wrap-input1 validate-input" data-validate="Es necesario su apellido">
+					<label for="apellido">Apellido</label>
 					<input class="input1" type="text" name="apellido" placeholder="Apellido">
 					<span class="shadow-input1"></span>
 				</div>
 
 				<div class="wrap-input1 validate-input" data-validate="Es necesario su fecha de nacimiento">
+					<label for="fechanacimiento">Fecha de nacimiento</label>
 					<input class="input1" type="date" name="fechanacimiento" id="dod" >
 					<span class="shadow-input1"></span>
 				</div>
 
 				<div class="wrap-input1 validate-input" data-validate="Es necesario su correo: ex@abc.xyz">
+					<label for="correo">Correo</label>
 					<input class="input1" type="email" name="correo" placeholder="Correo">
 					<span class="shadow-input1"></span>
 				</div>
 
 				<div class="wrap-input1 validate-input" data-validate="La contrasena es requerida">
+					<label for="contrasena">Contrasena</label>
 					<input class="input1" type="password" name="contrasena" placeholder="Contrasena">
 					<span class="shadow-input1"></span>
 				</div>
 
-				<div class="container-contact1-form-btn" onclick="isValidDate()">
+				<div class="container-contact1-form-btn">
 					<button class="contact1-form-btn">
 						<span>
 							Registrarme
@@ -89,7 +94,16 @@
 			scale: 1.1
 		})
 	</script>
+	<!--===============================================================================================-->
+	<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+	<script src="dist/js/bd.js"></script>
+	<!--===============================================================================================-->
 	<script src="dist/js/register.js"></script>
+	<!--===============================================================================================-->
 	<script>
 		//La funcion mas pequeña de la historia
 		var today = new Date();
