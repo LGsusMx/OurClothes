@@ -28,6 +28,7 @@ function guardarProducto(){
             Status:'Disponible'
         })
         .then(function(docRef) {
+            $('#venderproducto').modal('hide');
             console.log("Document written with ID: ", docRef.id);
         })
         .catch(function(error) {
