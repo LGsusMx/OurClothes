@@ -1,13 +1,14 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg">
+  <link rel="icon" href="dist/images/Logo.png">
 
-  <title>Pricing example for Bootstrap</title>
+  <title>OurClothes</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/pricing/">
 
@@ -37,8 +38,8 @@
 
     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
       <div class="navbar-nav">
-        <a href="#" class="nav-item nav-link active">Principal</a>
-        <a href="#" class="nav-item nav-link">Enlace1</a>
+        <a href="#" class="nav-item nav-link active">OurClothes</a>
+         
       </div>
       <form class="form-inline">
         <div class="input-group">
@@ -49,6 +50,10 @@
         </div>
       </form>
       <div class="navbar-nav ">
+        <!-- Button trigger modal -->  
+        <button type="button" class="nav-item btn btn-primary" data-toggle="modal" data-target="#venderproducto">
+          <i class="fa fa-cart-plus" aria-hidden="true"></i> Vender
+        </button>
         <div class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Opciones</a>
           <div class="dropdown-menu dropdown-menu-right">
@@ -68,7 +73,7 @@
 
       <div class="col-lg-3">
 
-        <h1 class="my-4">Shop Name</h1>
+        <h1 class="my-4">OurClothes</h1>
         <div class="list-group">
           <a href="#" class="list-group-item">Category 1</a>
           <a href="#" class="list-group-item">Category 2</a>
@@ -222,29 +227,7 @@
 
   </div>
   <!-- /.container -->
-  <div class="modal fade" id="perfilmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="micuentaModalLabel">Perfil de usuario</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-              <div class="row m-2">
-                <div class="col-12">
-                  <p id="datosP"></p>
-                </div>
-            </div>   
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          </div>
-      </div>
-  </div>
-</div>
+
   <div class="container">
 
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
@@ -286,6 +269,70 @@
       </div>
     </footer>
   </div>
+  <!-- Modals -->
+  <div class="modal fade" id="perfilmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="micuentaModalLabel">Perfil de usuario</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <div class="row m-2">
+                <div class="col-12">
+                  <p id="datosP"></p>
+                </div>
+            </div>   
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="venderproducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Subir Producto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label  >Nombre</label>
+            <input id="txtNombrePro" type="text" class="form-control"  placeholder="Nombre del producto" required> 
+          </div>
+          <div class="form-group">
+            <label  >Descripcion</label>
+            <textarea id="txtDescripcionPro" class="form-control" placeholder="Descripcion del producto" required></textarea>  
+          </div>
+          <div class="form-group">
+            <label  >Precio</label>
+            <input id="txtPrecioPro"  step="0.1"type="number" class="form-control"  placeholder="Precio del producto" required> 
+          </div>
+          <div class="form-group">
+            <label  >Imagen</label>
+            <div class="custom-file">
+              <input id="photo" type="file" class="custom-file-input" id="customFileLang" lang="es"  accept="image/x-png,image/jpeg" required>
+              <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+            </div>
+          </div>
+          <button onclick="guardarProducto();" type="submit" class="btn btn-primary">Subir</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button> 
+      </div>
+    </div>
+  </div>
+</div>
   <script>
       // Your web app's Firebase configuration
       // Initialize Firebase
@@ -303,8 +350,10 @@
   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
   <!--===============================================================================================-->
   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-storage.js"></script>
   <script src="dist/js/bd.js"></script>
   <script src="dist/js/edit.js"></script>
+  <script src="dist/js/index.js"></script>
 </body>
 </body>
 
