@@ -73,3 +73,7 @@ function guardarProducto(){
     })
 }
 
+//Detalleproducto
+function DetalleProducto(id){
+    alert("Aqui va el detalle producto" + id);
+}
