@@ -1,6 +1,42 @@
 var user = firebase.auth().currentUser;
 var idusuario = sessionStorage.getItem("idusuario");
+
+const listaproductos = document.getElementById('listaproductos');
+
 const datosdelacuenta = document.getElementById('datosP');
+
+//Traer productos
+firebase.firestore().collection('productos').onSnapshot(query => {
+    let html = ''
+    query.forEach(doc =>{
+        console.log(doc.data())
+        const productodetalle = doc.data();
+        const columna = `
+        <div class="col-md-4" style="padding-bottom: 15px;">
+        <div class="card h-100" onclick="DetalleProducto('${doc.id}')">
+          <section class="panel">
+              <div class="pro-img-box">
+                  <img src="${productodetalle.Imagen}" alt="" />
+                  <a href="#" class="adtocart">
+                      <i class="fa fa-shopping-cart"></i>
+                  </a>
+              </div>
+              <div class="panel-body text-center">
+                  <h4><a href="#" class="pro-title"> ${productodetalle.NombreArticulo}</a> </h4>
+                  <p class="price">$  ${productodetalle.Precio} </p>
+              </div>
+          </section>
+          <div class="card-footer" style="padding: .25rem 1.25rem; text-align: center;">
+            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+          </div>
+        </div>
+      </div>
+        `;
+        html += columna;
+        });
+        listaproductos.innerHTML = html;
+    });
+  
 db.collection('usuarios').doc(idusuario).get().then( doc =>{
     const html = `
         <p>Nombre: ${ doc.data().name } ${ doc.data().lastname }</p>
@@ -36,3 +72,4 @@ function guardarProducto(){
         });
     })
 }
+
