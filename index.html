@@ -273,6 +273,40 @@
       </div>
   </div>
 </div>
+<!-- Modal para ver detalles del producto -->
+<div class="modal fade" id="obtenerProducto" abindex="-1" aria-labelledby="IdMdNombre" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header text-center" style="background-color: #F5F5F5;">
+        <h2 class="modal-title w-100" id="IdMdNombre"></h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row"> 
+          <div class="col-2">
+            <img id="IdMdImagen" src="dist/images/Logo.png" alt="" width="200px" height="200px"> 
+          </div>
+          <div class="col-9">
+            <div class="col-12">
+              <p class="text-secondary" style="font-weight: bold;">Publicación creada por <span id="IdMdUsuario" style="text-decoration: underline #FF9800"></span></p>
+            </div>
+            <div class="col-12" style="margin-top: 3%;">
+              <p id="IdMdDescripcion"></p>
+            </div>
+          </div>
+          <div class="col-1">
+            <p class="text-danger" id="IdMdPrecio"></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" id="IdMdFooter" style="background-color: #F5F5F5;">
+        
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="venderproducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
