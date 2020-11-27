@@ -13,7 +13,7 @@ firebase.firestore().collection('productos').onSnapshot(query => {
         const productodetalle = doc.data();
         const columna = `
         <div class="col-md-4" style="padding-bottom: 15px;">
-        <div class="card h-100" onclick="DetalleProducto('${doc.id}')">
+        <div class="card h-100" data-toggle="modal" data-target="#obtenerProducto" onclick="DetalleProducto('${doc.id}')">
           <section class="panel">
               <div class="pro-img-box">
                   <img src="${productodetalle.Imagen}" alt="" />
@@ -56,7 +56,7 @@ function guardarProducto(){
     const task = ref.child(document.getElementById('txtNombrePro').value + idusuariA).put(file,metadata);
     task.then(snapshot => snapshot.ref.getDownloadURL()).then(url =>{
         db.collection("productos").add({
-            Descripción: document.getElementById('txtDescripcionPro').value,
+            Descripcion: document.getElementById('txtDescripcionPro').value,
             IDUsuario: idusuariA,
             Imagen: url,
             NombreArticulo: document.getElementById('txtNombrePro').value,
@@ -75,5 +75,31 @@ function guardarProducto(){
 
 //Detalleproducto
 function DetalleProducto(id){
-    alert("Aqui va el detalle producto" + id);
+    var firebasedoc = db.collection("productos").doc(id);
+    firebasedoc.get().then(function(doc) {
+        if (doc.exists) {
+            // Get the modal
+            if (doc.data().Status == "Disponible") {
+                document.getElementById("IdMdNombre").innerHTML = doc.data().NombreArticulo + ' <span class="badge badge-primary">' + doc.data().Status + '</span>';
+            }
+            else {
+                document.getElementById("IdMdNombre").innerHTML = doc.data().NombreArticulo + ' <span class="badge badge-warning">' + doc.data().Status + '</span>';
+            }
+            document.getElementById("IdMdUsuario").innerHTML = doc.data().IDUsuario;
+            document.getElementById("IdMdImagen").src = doc.data().Imagen;
+            document.getElementById("IdMdDescripcion").innerHTML = doc.data().Descripcion;
+            document.getElementById("IdMdPrecio").innerHTML = '$' + doc.data().Precio;
+            document.getElementById("IdMdFooter").innerHTML = `<button type="button" class="btn btn-success btn-block" onclick="AgregarCarro('${id}')">Añadir al carro</button>`
+        } else {
+            console.log("No existe ese documento!");
+        }
+    }).catch(function(error) {
+        console.log("Se ha presentado un error: ", error);
+    });
+}
+
+
+// Añadir al coche
+function AgregarCarro(id) {
+    alert("Id del documento: " + id);
 }
