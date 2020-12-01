@@ -1,2 +1,2 @@
 # OurClothes
-Proyecto de Desarrollo Colavorativo 
+Proyecto de Desarrollo Colaborativo 
