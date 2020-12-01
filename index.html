@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Custom styles for this template -->
+  <link href="dist/css/product.css" rel="stylesheet"> 
   <link href="dist/css/pricing.css" rel="stylesheet"> 
   <style type="text/css">
     :root #content>#right>.dose>.dosesingle,
@@ -51,6 +52,9 @@
       </form>
       <div class="navbar-nav ">
         <!-- Button trigger modal -->  
+        <button type="button" class="nav-item btn btn-success" data-toggle="modal" onclick="AlCarrito()">
+          <i class="fa fa-cart-plus" aria-hidden="true"></i> Carrito
+        </button>
         <button type="button" class="nav-item btn btn-primary" data-toggle="modal" data-target="#venderproducto">
           <i class="fa fa-cart-plus" aria-hidden="true"></i> Vender
         </button>
@@ -114,107 +118,86 @@
 
         <div class="row">
 
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item One</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
-                </p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
+          <div class="container bootdey">
+            <div class="col-md-12">
+                <div class="row product-list"  id="listaproductos">
+                 
+                    <div class="col-md-4" style="padding-bottom: 15px;">
+                      <div class="card h-100" >
+                        <section class="panel">
+                            <div class="pro-img-box">
+                                <img src="https://via.placeholder.com/250x220/FFB6C1/000000" alt="" />
+                                <a href="#" class="adtocart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </a>
+                            </div>
+        
+                            <div class="panel-body text-center">
+                                <h4>
+                                    <a href="#" class="pro-title">
+                                        Leopard Shirt Dress
+                                    </a>
+                                </h4>
+                                <p class="price">$300.00</p>
+                            </div>
+                        </section>
+                        <div class="card-footer" style="padding: .25rem 1.25rem; text-align: center;">
+                          <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4" style="padding-bottom: 15px;">
+                      <div class="card h-100" >
+                        <section class="panel">
+                            <div class="pro-img-box">
+                                <img src="https://via.placeholder.com/250x220/FFB6C1/000000" alt="" />
+                                <a href="#" class="adtocart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </a>
+                            </div>
+        
+                            <div class="panel-body text-center">
+                                <h4>
+                                    <a href="#" class="pro-title">
+                                        Leopard Shirt Dress
+                                    </a>
+                                </h4>
+                                <p class="price">$300.00</p>
+                            </div>
+                        </section>
+                        <div class="card-footer" style="padding: .25rem 1.25rem; text-align: center;">
+                          <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4" style="padding-bottom: 15px;">
+                      <div class="card h-100" >
+                        <section class="panel">
+                            <div class="pro-img-box">
+                                <img src="https://via.placeholder.com/250x220/FFB6C1/000000" alt="" />
+                                <a href="#" class="adtocart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </a>
+                            </div>
+        
+                            <div class="panel-body text-center">
+                                <h4>
+                                    <a href="#" class="pro-title">
+                                        Leopard Shirt Dress
+                                    </a>
+                                </h4>
+                                <p class="price">$300.00</p>
+                            </div>
+                        </section>
+                        <div class="card-footer" style="padding: .25rem 1.25rem; text-align: center;">
+                          <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        </div>
+                      </div>
+                    </div>
+                   
+                </div>
             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Two</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
-                  Lorem ipsum dolor sit amet.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Three</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
-                </p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Four</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
-                </p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Five</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
-                  Lorem ipsum dolor sit amet.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Six</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
-                </p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
+        </div>
 
         </div>
         <!-- /.row -->
@@ -291,6 +274,40 @@
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
           </div>
       </div>
+  </div>
+</div>
+<!-- Modal para ver detalles del producto -->
+<div class="modal fade" id="obtenerProducto" abindex="-1" aria-labelledby="IdMdNombre" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header text-center" style="background-color: #F5F5F5;">
+        <h2 class="modal-title w-100" id="IdMdNombre"></h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row"> 
+          <div class="col-2">
+            <img id="IdMdImagen" src="dist/images/Logo.png" alt="" width="200px" height="200px"> 
+          </div>
+          <div class="col-9">
+            <div class="col-12">
+              <p class="text-secondary" style="font-weight: bold;">Publicación creada por <span id="IdMdUsuario" style="text-decoration: underline #FF9800"></span></p>
+            </div>
+            <div class="col-12" style="margin-top: 3%;">
+              <p id="IdMdDescripcion"></p>
+            </div>
+          </div>
+          <div class="col-1">
+            <p class="text-danger" id="IdMdPrecio"></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" id="IdMdFooter" style="background-color: #F5F5F5;">
+        
+      </div>
+    </div>
   </div>
 </div>
 <!-- Modal -->
