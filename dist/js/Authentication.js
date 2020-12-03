@@ -10,8 +10,12 @@ formaingresar.addEventListener('submit', (e)=>{
         console.log(cred);
         formaingresar.reset();
         formaingresar.querySelector('.error').innerHTML=''; 
+        var user = firebase.auth().currentUser;
+        sessionStorage.setItem("idusuario",user.uid );
+        sessionStorage.setItem("email",user.email );
+        console.log(user.email)
         location.href = "./index.html"
-        console.log( "Ingreso")
+        console.log( "Ingreso");
     }).catch( err => {
 
         formaingresar.querySelector('.error').innerHTML=mensajeError(err.code);

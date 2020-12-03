@@ -1,14 +1,17 @@
 var user = firebase.auth().currentUser;
 var idusuario = sessionStorage.getItem("idusuario");
 
+
+var emailuser = sessionStorage.getItem("email");
+
 const listaproductos = document.getElementById('listaproductos');
 
 const datosdelacuenta = document.getElementById('datosP');
-
 //Traer productos
 firebase.firestore().collection('productos').onSnapshot(query => {
     let html = ''
-    query.forEach(doc =>{
+    query.forEach(doc => {
+
         console.log(doc.data())
         const productodetalle = doc.data();
         const columna = `
@@ -33,47 +36,49 @@ firebase.firestore().collection('productos').onSnapshot(query => {
       </div>
         `;
         html += columna;
-        });
-        listaproductos.innerHTML = html;
     });
-  
-db.collection('usuarios').doc(idusuario).get().then( doc =>{
+    listaproductos.innerHTML = html;
+});
+
+db.collection('usuarios').doc(idusuario).get().then(doc => {
+
     const html = `
-        <p>Nombre: ${ doc.data().name } ${ doc.data().lastname }</p>
-        <p>Correo: ${ user.email}</p>
-        <p>Fecha de nacimiento: ${ doc.data().dob }</p>
+        <p>Nombre: ${doc.data().name} ${doc.data().lastname}</p>
+        <p>Correo: ${emailuser}</p>
+        <p>Fecha de nacimiento: ${doc.data().dob}</p>
     `;
     datosdelacuenta.innerHTML = html;
 
 });
-function guardarProducto(){
+function guardarProducto() {
     var idusuariA = sessionStorage.getItem("idusuario");
     //var idusuariA = 'testinguwu';
     const file = document.querySelector('#photo').files[0];
-    const metadata ={
-        contentType:file.type
+    const metadata = {
+        contentType: file.type
     };
-    const task = ref.child(document.getElementById('txtNombrePro').value + idusuariA).put(file,metadata);
-    task.then(snapshot => snapshot.ref.getDownloadURL()).then(url =>{
+    const task = ref.child(document.getElementById('txtNombrePro').value + idusuariA).put(file, metadata);
+    task.then(snapshot => snapshot.ref.getDownloadURL()).then(url => {
         db.collection("productos").add({
             Descripcion: document.getElementById('txtDescripcionPro').value,
             IDUsuario: idusuariA,
             Imagen: url,
             NombreArticulo: document.getElementById('txtNombrePro').value,
             Precio: parseFloat(document.getElementById('txtPrecioPro').value),
-            Status:'Disponible'
+            Status: 'Disponible'
         })
-        .then(function(docRef) {
-            $('#venderproducto').modal('hide');
-            console.log("Document written with ID: ", docRef.id);
-        })
-        .catch(function(error) {
-            console.error("Error adding document: ", error);
-        });
+            .then(function (docRef) {
+                $('#venderproducto').modal('hide');
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch(function (error) {
+                console.error("Error adding document: ", error);
+            });
     })
 }
 
 //Detalleproducto
+
 function DetalleProducto(id){
     var firebasedoc = db.collection("productos").doc(id);
     firebasedoc.get().then(function(doc) {
@@ -101,5 +106,38 @@ function DetalleProducto(id){
 
 // Añadir al coche
 function AgregarCarro(id) {
-    alert("Id del documento: " + id);
+
+    var firebasedoc = db.collection("productos").doc(id);
+    firebasedoc.get().then(function (doc) {
+        if (doc.exists) {
+            // Get the modal
+            if (doc.data().Status == "Disponible") {
+                console.log(doc.data().NombreArticulo)
+                db.collection('carritos').doc(sessionStorage.getItem("idusuario")).collection('productos').doc(id).set({
+                    Cantidad: "1",
+                    NombreArticulo: doc.data().NombreArticulo,
+                    Precio: doc.data().Precio,
+                    imagen: doc.data().Imagen
+                })
+
+                alert("Añadido al carro el articulo llamado: " + doc.data().NombreArticulo);
+
+            }
+            
+            else {
+                
+                alert("El articulo llamado: " + doc.data().NombreArticulo + " esta agotado :(");
+            }
+        } else {
+            console.log("No existe ese documento!");
+        }
+    }).catch(function (error) {
+        console.log("Se ha presentado un error: ", error);
+    });
+    var firebasedoc = db.collection("productos").doc(id);
+
 }
+
+function AlCarrito() {
+    location.href = "cart.html";
+    alert("Id del documento: " + id);
