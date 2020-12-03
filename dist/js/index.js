@@ -1,6 +1,7 @@
 var user = firebase.auth().currentUser;
 var idusuario = sessionStorage.getItem("idusuario");
 
+
 var emailuser = sessionStorage.getItem("email");
 
 const listaproductos = document.getElementById('listaproductos');
@@ -10,6 +11,7 @@ const datosdelacuenta = document.getElementById('datosP');
 firebase.firestore().collection('productos').onSnapshot(query => {
     let html = ''
     query.forEach(doc => {
+
         console.log(doc.data())
         const productodetalle = doc.data();
         const columna = `
@@ -39,6 +41,7 @@ firebase.firestore().collection('productos').onSnapshot(query => {
 });
 
 db.collection('usuarios').doc(idusuario).get().then(doc => {
+
     const html = `
         <p>Nombre: ${doc.data().name} ${doc.data().lastname}</p>
         <p>Correo: ${emailuser}</p>
@@ -75,13 +78,14 @@ function guardarProducto() {
 }
 
 //Detalleproducto
-function DetalleProducto(id) {
+
+function DetalleProducto(id){
     var firebasedoc = db.collection("productos").doc(id);
-    firebasedoc.get().then(function (doc) {
+    firebasedoc.get().then(function(doc) {
         if (doc.exists) {
             // Get the modal
             if (doc.data().Status == "Disponible") {
-                document.getElementById("nombreId").innerHTML = doc.data().NombreArticulo;
+                document.getElementById("IdMdNombre").innerHTML = doc.data().NombreArticulo + ' <span class="badge badge-primary">' + doc.data().Status + '</span>';
             }
             else {
                 document.getElementById("IdMdNombre").innerHTML = doc.data().NombreArticulo + ' <span class="badge badge-warning">' + doc.data().Status + '</span>';
@@ -94,7 +98,7 @@ function DetalleProducto(id) {
         } else {
             console.log("No existe ese documento!");
         }
-    }).catch(function (error) {
+    }).catch(function(error) {
         console.log("Se ha presentado un error: ", error);
     });
 }
@@ -102,6 +106,7 @@ function DetalleProducto(id) {
 
 // Añadir al coche
 function AgregarCarro(id) {
+
     var firebasedoc = db.collection("productos").doc(id);
     firebasedoc.get().then(function (doc) {
         if (doc.exists) {
@@ -135,4 +140,4 @@ function AgregarCarro(id) {
 
 function AlCarrito() {
     location.href = "cart.html";
-}
+    alert("Id del documento: " + id);
