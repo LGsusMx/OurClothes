@@ -141,3 +141,4 @@ function AgregarCarro(id) {
 function AlCarrito() {
     location.href = "cart.html";
     alert("Id del documento: " + id);
+}
