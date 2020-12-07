@@ -72,7 +72,7 @@
 
 function registerFunction(namex,lastnamex,datex,emailx,passwordx){
     auth.createUserWithEmailAndPassword(emailx.val(),passwordx.val()).then( cred =>{
-
+        sessionStorage.setItem("idusuario",cred.user.uid );
         return db.collection('usuarios').doc(cred.user.uid).set({
             name: namex.val(),
             lastname: lastnamex.val(),
